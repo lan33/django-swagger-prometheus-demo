@@ -11,12 +11,11 @@
 
 * **Installer Prometheus** : https://prometheus.io/download/, https://prometheus.io/docs/introduction/first_steps/
 
-* **Configurer et démarrer Prometheus** :
-  * `prometheus.yml`
+* **Configurer Prometheus** : dans `prometheus.yml` :
     ```
     scrape_configs:
      - job_name: 'django'
        static_configs:
         - targets: ['localhost:8000']
    ```
- * `prometheus --config.file=prometheus.yml` pour prendre en compte des modifications de `prometheus.yml`, `prometheus` tout court sinon.
+* **Démarrer Prometheus** : `prometheus --config.file=prometheus.yml` pour prendre en compte des modifications de `prometheus.yml`, `prometheus` tout court sinon.
