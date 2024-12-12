@@ -1,22 +1,21 @@
 #import pandas as pd
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import DataFileForm
-from prometheus_client import Gauge, Counter
+#from prometheus_client import Gauge, Counter
 #import autokeras as ak
 #from sklearn.model_selection import train_test_split
-#from django_prometheus.middleware import metrics
 from rest_framework.decorators import api_view
+from django.http import HttpResponse
 
 # Création du métrique pour le modèle d'IA
 # ACCURACY = Gauge('accuracy', 'Accuracy of the model')
 
-from django.http import HttpResponse
+
 @api_view(['GET'])
 def hello_world(request):
     return HttpResponse('Hello, World!')
 
 @api_view(['GET', 'POST'])
-#@metrics
 def upload_file(request):
     if request.method == 'POST':
         form = DataFileForm(request.POST, request.FILES)
@@ -26,7 +25,6 @@ def upload_file(request):
         form = DataFileForm()
     return render(request, 'upload.html', {'form': form})
 
-# @metrics
 # def train_model(request):
 #     REQUEST_COUNT.inc()
 #     with REQUEST_LATENCY.time():
