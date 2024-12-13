@@ -11,7 +11,7 @@
 
 * **Installer Prometheus** : https://prometheus.io/download/, https://prometheus.io/docs/introduction/first_steps/
 
-* **Configurer Prometheus** : dans `prometheus.yml` :
+* **Configurer le serveur Prometheus** : dans `prometheus.yml` :
     ```
     scrape_configs:
      - job_name: 'django'
@@ -19,3 +19,9 @@
         - targets: ['localhost:8000']
    ```
 * **Démarrer Prometheus** : `prometheus --config.file=prometheus.yml` pour prendre en compte des modifications de `prometheus.yml`, `prometheus` tout court sinon.
+
+* **Endpoints** :
+  * Serveur (web app) : http://127.0.0.1:8000
+  * Documentation API avec Swagger : http://127.0.0.1:8000/swagger
+  * Métriques avec Prometheus : http://127.0.0.1:8080/metrics
+  * Serveur Prometheus : http://127.0.0.1:9090
